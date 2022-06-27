@@ -32,7 +32,7 @@ function addItem (value) {
   sendItemToAPI(value);
 
   data.todo.push(value);
-  dataObjectUpdated();
+    dataObjectUpdated();
 }
 
 function renderTodoList() {
@@ -131,13 +131,12 @@ function sendItemToAPI(item) {
   req.open('POST', '/add');
   req.setRequestHeader('Content-Type', 'application/json');
   req.send(JSON.stringify({ item: item }));
-
   req.addEventListener('load', () => {
-    console.log(req.responseText);
-  });
-
+      console.log(req.responseText);
+      console.log('Request done!');
+    });
   req.addEventListener('error', () => {
-    console.log('Shit, something bad happened.');
-    console.log(e);
-  });
+      console.log('Shit, something bad happened.');
+      console.log(e);
+    });
 }
